@@ -1,0 +1,2 @@
+class PensController < ApplicationController
+end
