@@ -1,0 +1,30 @@
+<h1>鋼筆列表</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>品牌</th>
+      <th>筆名</th>
+      <th>售價</th>
+      <th>筆況</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pens.each do |pen| %>
+      <tr>
+        <td><%= pen.brand %></td>	
+        
+        <td><%= pen.description %></td>
+        <td><%= pen.price %></td>
+		<td><%= pen.image%></td>
+		<td></td>
+        <td><%= link_to '編輯', edit_pen_path(product) %></td>
+        <td><%= link_to '刪除', pen, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to '新增鋼筆', new_pen_path, class: 'btn btn-success btn-sm' %>
