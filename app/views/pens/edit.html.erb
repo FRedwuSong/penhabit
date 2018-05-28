@@ -1,0 +1,16 @@
+<%= simple_form_for(@pen) do |f| %>
+ 
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :brand %>
+    <%= f.input :description %>
+    <%= f.file_field :image %>
+    <%= f.input :price %>
+    
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-success" %>
+  </div>
+<% end %>
