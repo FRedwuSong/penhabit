@@ -15,13 +15,14 @@
     <% @pens.each do |pen| %>
       <tr>
         <td><%= pen.brand %></td>	
-        
-        <td><%= pen.description %></td>
+        <td><%= pen.name %></td>
         <td><%= pen.price %></td>
-		<td><%= pen.image%></td>
-		<td></td>
-        <td><%= link_to '編輯', edit_pen_path(product) %></td>
-        <td><%= link_to '刪除', pen, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= pen.description %></td>
+        <td>
+          <%= link_to "編輯", edit_pen_path(pen)%>
+          <%= link_to "刪除", pen_path(pen), method: "delete", data: { conform: "確認刪除" }%>
+        </td>		
+        
       </tr>
     <% end %>
   </tbody>
