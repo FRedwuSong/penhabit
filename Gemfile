@@ -43,6 +43,7 @@ gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'simple_form'
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+gem 'carrierwave', '~> 1.2', '>= 1.2.2'
 
 
 group :development, :test do

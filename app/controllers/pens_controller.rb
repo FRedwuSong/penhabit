@@ -29,7 +29,7 @@ before_action :authenticate_user!
 
 	private
 	def pen_params
-		params.require(:pen).permit(:name, :brand, :description, :price)
+		params.require(:pen).permit(:name, :brand, :description, :price, :image)
 	end
 
 end
