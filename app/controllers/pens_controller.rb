@@ -2,7 +2,7 @@ class PensController < ApplicationController
 before_action :authenticate_user!
 before_action :set_pen, only:[:edit, :update, :destroy]
 	def index
-  	@pens = Pen.all	
+  	@pens = Pen.order("user_id")
 	end
 
 	def new
@@ -35,9 +35,8 @@ before_action :set_pen, only:[:edit, :update, :destroy]
 		redirect_to root_path, notice: "鋼筆資料已刪除"
 	end
   
-  def show
-  	
-  end
+  	def show
+  	end
 
 	private
 	def set_pen
