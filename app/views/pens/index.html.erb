@@ -11,24 +11,29 @@
               <th>售價</th>
               <th>筆況</th>
               <th>圖片</th>
-              <th>edit/destroy</th>
+              <th>#</th>
             </tr>
           </thead>
      
           <tbody>
             <% @pens.each do |pen| %>
               <tr>
-                <td><%= pen.user.id %></td> 
-                <td><%= pen.brand %></td> 
+                <td><%= pen.id %></td> 
+                <td><%= pen.brand %></td>
                 <td><%= pen.name %></td>
                 <td><%= pen.price %></td>
                 <td><%= pen.description %></td>
                 <td><%= image_tag( pen.image.url, class:"image") if pen.image_url %></td>
                 <td>
-                  <% if pen.user.id == current_user.id %>
-                    <%= link_to "編輯", edit_pen_path(pen)%>
-                    <%= link_to "刪除", pen_path(pen), method: "delete", data: { conform: "確認刪除" }%>
-                  <% end %> 
+                  <% if pen.is_watched?(current_user) %>
+                    <%= link_to unwatch_pen_path(pen), method: :post  do %>
+                      UnWatch (<%=pen.watchs.size%>)
+                    <%end%>
+                  <% else %>
+                    <%= link_to watch_pen_path(pen), method: :post do %>
+                    Watch (<%=pen.watchs.size%>) 
+                   <%end%>
+                  <%end%>
                 </td>   
               </tr>
             <% end %>
