@@ -8,7 +8,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'cc29acdfebd81e5a2f0f61e42c3edb5a7558211c2511610a2e0013dae94c36f4c779af3893964817596d0964933abfa358c0d71a0b9d47f978748f4f4460e0a9'
+  config.secret_key = 'cc29acdfebd81e5a2f0f61e42c3edb5a7558211c2511610a2e0013dae94c36f4c779af3893964817596d0964933abfa358c0d71a0b9d47f978748f4f4460e0a9'
   
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -19,7 +19,7 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
-
+  
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
