@@ -39,7 +39,7 @@ class PensController < ApplicationController
 
   def watch
     Watch.create!(pen: @pen, user: current_user)
-    redirect_back fallback_location: root_url
+    redirect_back fallback_location: root_path
   end
 
   def unwatch
@@ -47,7 +47,7 @@ class PensController < ApplicationController
     watch = Watch.where(pen: pen, user: current_user)
     watch.destroy_all
     # redirect_back fall_location: root_url
-    redirect_back(fallback_location: root_path) 
+    redirect_back fallback_location: root_path
   end
 
   private
