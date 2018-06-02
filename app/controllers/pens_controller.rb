@@ -1,6 +1,6 @@
 class PensController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_pen, only:[:edit, :update, :destroy, :watch]
+  before_action :set_pen, only:[:edit, :update, :destroy, :watch, :unwatch]
   def index
     @pens = Pen.order("user_id")
   end
@@ -43,9 +43,7 @@ class PensController < ApplicationController
   end
 
   def unwatch
-    pen = Pen.find_by(params[:id])
-    watch = Watch.where(pen: pen, user: current_user)
-    watch.destroy_all
+    Watch.where(pen: @pen, user: current_user).destroy_all
     # redirect_back fall_location: root_url
     redirect_back fallback_location: root_path
   end
