@@ -44,7 +44,6 @@ class PensController < ApplicationController
 
   def unwatch
     Watch.where(pen: @pen, user: current_user).destroy_all
-    # redirect_back fall_location: root_url
     redirect_back fallback_location: root_path
   end
 
