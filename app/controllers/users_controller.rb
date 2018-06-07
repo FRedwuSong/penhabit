@@ -2,13 +2,11 @@ class UsersController < ApplicationController
 	before_action :set_user , only: [:pens, :update, :edit]
 
 	def pens
-		@pens = @user.pens 
+		@pens = @user.pens
 	end
 
-	def edit
-    if current_user != @user
-      redirect_to user_path
-    end
+  def edit
+ #    redirect_to user_path if current_user != @user
   end
 
   def update
@@ -19,7 +17,6 @@ class UsersController < ApplicationController
       flash[:alert] = @user.errors.full_messages.to_sentence
       render :edit
     end
-
   end
 
   private
@@ -31,5 +28,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name)
   end
-
 end

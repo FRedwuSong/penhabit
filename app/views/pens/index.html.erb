@@ -1,52 +1,52 @@
 <div class="container">
   <div class="row">
-      <div class="col-lg-10">
-        <h1>鋼筆列表</h1>
-        <table class="table">
-          <thead>
+    <div class="col-lg-10">
+      <h1>鋼筆列表</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>所有人</th>
+            <th>品牌</th>
+            <th>筆名</th>
+            <th>售價</th>
+            <th>筆況</th>
+            <th>圖片</th>
+            <th>#</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @pens.each do |pen| %>
             <tr>
-              <th>所有人</th>
-              <th>品牌</th>
-              <th>筆名</th>
-              <th>售價</th>
-              <th>筆況</th>
-              <th>圖片</th>
-              <th>#</th>
-            </tr>
-          </thead>
-     
-          <tbody>
-            <% @pens.each do |pen| %>
-              <tr>
-                <td><%= pen.id %></td> 
-                <td><%= pen.brand %></td>
-                <td><%= pen.name %></td>
-                <td><%= pen.price %></td>
-                <td><%= pen.description %></td>
-                <td><%= image_tag( pen.image.url, class:"image") if pen.image_url %></td>
-                <td>
-                  <% if pen.is_watched?(current_user) %>
-                    <%= link_to unwatch_pen_path(pen), method: :post  do %>
-                      UnWatch (<%=pen.watchs.size%>)
-                    <%end%>
-                  <% else %>
-                    <%= link_to watch_pen_path(pen), method: :post do %>
-                    Watch (<%=pen.watchs.size%>) 
-                   <%end%>
+              <td><%= pen.id %></td>
+              <td><%= pen.brand %></td>
+              <td><%= pen.name %></td>
+              <td><%= pen.price %></td>
+              <td><%= pen.description %></td>
+              <td><%= image_tag( pen.image.url, class:"image") if pen.image_url %></td>
+              <td>
+                <% if pen.is_watched?(current_user) %>
+                  <%= link_to unwatch_pen_path(pen), method: :post  do %>
+                    UnWatch (<%=pen.watchs.size%>)
                   <%end%>
-                </td>   
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-        <%= link_to '新增鋼筆', new_pen_path, class: 'btn btn-success btn-sm' %>
-      </div>
+                <% else %>
+                  <%= link_to watch_pen_path(pen), method: :post do %>
+                    Watch (<%=pen.watchs.size%>)
+                  <%end%>
+                <%end%>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= link_to '新增鋼筆', new_pen_path, class: 'btn btn-success btn-sm' %>
+    </div>
 
     <div class="col-lg-2">
       <h1><%= current_user.name%></h1>
-        <p>我有<%= current_user.pens.count%>隻筆<p>
-        <p><%= link_to "更改我的名", edit_user_path(current_user)%>
-        <p><%= link_to "筆的列表", pens_user_path(current_user) %></p>    
+      <p>我有<%= current_user.pens.count%>隻筆<p>
+      <p><%= link_to "更改名字", edit_user_path(current_user) %> </p>
+      <p><%= link_to "筆的列表", pens_user_path(current_user) %> </p>
     </div>
   </div>
 </div>

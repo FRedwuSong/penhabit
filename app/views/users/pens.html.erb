@@ -1,32 +1,19 @@
 <table class="table">
   <tbody>
     <% @pens.each do |pen| %>
-        <tr>
-            <td>
-                <%= pen.user.id %>
-            </td>
-            <td>
-                <%= pen.brand %>
-            </td>
-            <td>
-                <%= pen.name %>
-            </td>
-            <td>
-                <%= pen.price %>
-            </td>
-            <td>
-                <%= pen.description %>
-            </td>
-            <td>
-                <%= image_tag( pen.image_url.to_s, class:"image")  %>
-            </td>
-            <td>
-                <% if pen.user.id == current_user.id %>
-                    <%= link_to "編輯", edit_pen_path(pen)%>
-                    <%= link_to "刪除", pen_path(pen), method: "delete", data: { conform: "確認刪除" }%>
-                <% end %>
-            </td>
-        </tr>
+      <tr>
+        <td><%= pen.user.id %></td>
+        <td><%= pen.brand %></td>
+        <td><%= pen.name %></td>
+        <td><%= pen.price %></td>
+        <td><%= pen.description %></td>
+        <td><%= image_tag( pen.image_url.to_s, class:"image")%></td>
+        <td><% if pen.user.id == current_user.id %>
+              <%= link_to "編輯", edit_pen_path(pen)%>
+              <%= link_to "刪除", pen_path(pen), method: "delete", data: { conform: "確認刪除" }%>
+            <% end %>
+        </td>
+      </tr>
     <% end %>
   </tbody>
 </table>
