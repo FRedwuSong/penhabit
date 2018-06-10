@@ -4,12 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :pens     
-
-  has_many :likes, dependent: :destroy
-
-  has_many :liked_pens, through: :watchs, source: :pen
- 
-
-
+  has_many :pens 
 end
