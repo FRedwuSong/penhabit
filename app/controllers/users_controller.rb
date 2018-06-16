@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 	end
 
   def edit
- #    redirect_to user_path if current_user != @user
+    #redirect_to user_path if current_user != @user
   end
 
   def update
