@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
-	before_action :set_user , only: [:pens, :update, :edit]
-
-	def pens
-		@pens = @user.pens
+  before_action :set_user , only: [:pens, :update, :edit]
+  def pens
+	  @pens = @user.pens
 	end
 
   def edit
