@@ -10,26 +10,28 @@
   </head>
 
   <body>
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+    <div class="fixed-top d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow ">
       <h5 class="my-0 mr-md-auto font-weight-normal">大家一起秀鋼筆</h5>
         <nav class="my-2 my-md-0 mr-md-3">
           <%= link_to '所有鋼筆', root_path , class: 'p-2 text-dark' %>
         </nav>
-        
+
           <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
-    
-          <br>  
-    
+
+          <br>
+
           <% if current_user %>
             <%= link_to('登出', destroy_user_session_path, :method => :delete) %> |
             <%= link_to('修改密碼', edit_registration_path(:user)) %>
           <%else %>
             <%= link_to('註冊', new_registration_path(:user)) %> |
             <%= link_to('登入', new_session_path(:user)) %>
-          <% end %> 
+          <% end %>
     </div>
-   
-    <%= yield %>
+
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
