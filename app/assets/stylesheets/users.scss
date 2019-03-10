@@ -1,3 +1,36 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.user-all-pens {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+  align-self: center;
+  justify-content: center;
+}
+
+.image {
+  width: 500px;
+  height: auto;
+  margin: 5px
+}
+
+.user-pen {
+
+}
+
+.user-pen-des {
+  margin: 5px;
+  font-size: 13px;
+}
+
+.edit-delete {
+  margin: 5px;
+  font-size: 1.4em;
+  // align-self: center;
+}
+
+.edit-delete a {
+  text-decoration: none !important;
+  color : red;
+}
